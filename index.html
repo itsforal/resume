@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alireza Laalmanesh - Computational Mathematics & Systems Engineering">
+    
+    <title>Alireza Laalmanesh | Research & Engineering</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Palette: Deep Dark with Neon Accents */
+            --bg-core: #050505;
+            --bg-panel: rgba(20, 20, 24, 0.7);
+            --border-dim: rgba(255, 255, 255, 0.08);
+            
+            --accent-cyan: #64d2ff;   /* Math */
+            --accent-purple: #bf5af2; /* AI */
+            --accent-green: #30d158;  /* Systems */
+            
+            --text-main: #f0f0f0;
+            --text-mute: #888890;
+            
+            --font-ui: 'Inter', sans-serif;
+            --font-code: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-core);
+            color: var(--text-main);
+            font-family: var(--font-ui);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND MESH --- */
+        #canvas-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -1;
+            opacity: 0.25;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 15px 0;
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-dim);
+            z-index: 1000;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { 
+            font-family: var(--font-code); 
+            font-weight: 700; 
+            color: var(--text-main); 
+            font-size: 1.1rem;
+        }
+        .logo span { color: var(--accent-cyan); }
+
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-mute);
+            font-size: 0.9rem;
+            transition: 0.3s;
+            font-family: var(--font-code);
+        }
+        .nav-links a:hover { color: var(--accent-cyan); }
+        
+        .btn-resume {
+            border: 1px solid var(--border-dim);
+            padding: 6px 14px;
+            border-radius: 4px;
+            color: var(--text-main) !important;
+            font-size: 0.85rem;
+        }
+        .btn-resume:hover { border-color: var(--accent-cyan); background: rgba(100,210,255,0.05); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 60px;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            background: rgba(48, 209, 88, 0.1);
+            border: 1px solid rgba(48, 209, 88, 0.2);
+            font-family: var(--font-code);
+            font-size: 0.8rem;
+            color: var(--accent-green);
+            width: fit-content;
+            margin-bottom: 25px;
+        }
+        .status-dot { width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%; box-shadow: 0 0 8px var(--accent-green); animation: blink 2s infinite; }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            background: linear-gradient(180deg, #fff, #777);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: 1.3rem;
+            color: var(--text-mute);
+            max-width: 650px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        .hero-sub b { color: var(--text-main); font-weight: 500; }
+
+        .contact-row { display: flex; gap: 15px; }
+        .btn {
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary { background: var(--text-main); color: #000; }
+        .btn-primary:hover { background: #ccc; box-shadow: 0 0 15px rgba(255,255,255,0.3); }
+        .btn-outline { border: 1px solid var(--border-dim); color: var(--text-mute); }
+        .btn-outline:hover { color: var(--text-main); border-color: var(--text-main); }
+
+        /* --- SECTIONS --- */
+        section { padding: 90px 0; border-bottom: 1px solid var(--border-dim); }
+        .sec-title {
+            font-family: var(--font-code);
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .sec-title::before { content: '>'; color: var(--accent-cyan); }
+
+        /* --- TERMINAL (SKILLS) --- */
+        .terminal {
+            background: #08080a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+        }
+        .term-bar {
+            background: #151518;
+            padding: 10px 15px;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid #222;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+
+        .term-content { padding: 30px; }
+        .cmd-line { margin-bottom: 10px; display: flex; }
+        .prompt { color: var(--accent-green); margin-right: 10px; }
+        .output { color: var(--text-mute); display: block; margin-bottom: 25px; line-height: 1.8; }
+        .highlight { color: var(--text-main); }
+
+        /* --- PROJECTS GRID --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-dim);
+            padding: 25px;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            background: rgba(30, 30, 35, 0.9);
+        }
+        .card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .icon-folder { color: var(--accent-cyan); font-size: 1.2rem; }
+        .icon-link { color: var(--text-mute); font-size: 1.2rem; transition: 0.2s; }
+        .icon-link:hover { color: #fff; }
+        
+        .card h3 { font-size: 1.1rem; margin-bottom: 10px; font-weight: 600; }
+        .card p { font-size: 0.9rem; color: var(--text-mute); margin-bottom: 20px; flex-grow: 1; }
+        
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; font-family: var(--font-code); font-size: 0.75rem; color: var(--text-mute); }
+        .tag { background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 4px; }
+
+        /* --- TIMELINE --- */
+        .timeline-row { display: flex; gap: 50px; }
+        .timeline-col { flex: 1; }
+        .timeline-item {
+            border-left: 1px solid var(--border-dim);
+            padding-left: 30px; padding-bottom: 40px; position: relative;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -5px; top: 6px;
+            width: 9px; height: 9px; background: var(--bg-core);
+            border: 2px solid var(--accent-purple); border-radius: 50%;
+        }
+        .time-role { font-size: 1.1rem; font-weight: 600; color: var(--text-main); }
+        .time-loc { font-size: 0.9rem; color: var(--text-mute); margin-bottom: 5px; }
+        .time-date { font-family: var(--font-code); font-size: 0.8rem; color: var(--accent-cyan); margin-bottom: 15px; display: block; }
+        .time-list { list-style: none; }
+        .time-list li {
+            position: relative; padding-left: 15px; margin-bottom: 8px;
+            font-size: 0.9rem; color: var(--text-mute);
+        }
+        .time-list li::before { content: '-'; position: absolute; left: 0; color: var(--accent-purple); }
+
+        /* --- FOOTER --- */
+        footer { padding: 40px 0; text-align: center; color: var(--text-mute); font-size: 0.85rem; }
+        .socials a { color: var(--text-mute); margin: 0 10px; font-size: 1.2rem; transition: 0.2s; }
+        .socials a:hover { color: var(--text-main); }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .nav-links { display: none; }
+            .timeline-row { flex-direction: column; gap: 0; }
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas-bg"></canvas>
+
+    <!-- Nav -->
+    <nav>
+        <div class="container nav-flex">
+            <div class="logo">./ALIREZA_<span>LAAL</span></div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Stack</a>
+                <a href="#projects">Repositories</a>
+                <a href="#experience">Experience</a>
+                <a href="resume.pdf" class="btn-resume" download>Download Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="about" class="hero">
+        <div class="container">
+            <div class="status-pill">
+                <div class="status-dot"></div>
+                <span>Available for Research</span>
+            </div>
+            
+            <h1>Alireza Laalmanesh</h1>
+            
+            <p class="hero-sub">
+                Researcher in <b>Computational Mathematics</b> & <b>Industrial Engineering</b>.<br>
+                Focusing on Numerical Analysis, Optimization, and Data-Driven Systems.
+            </p>
+
+            <div class="contact-row">
+                <a href="mailto:alaalman@uwaterloo.ca" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="https://github.com/itsforal" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com/in/alireza-laalmanesh" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills (Terminal) -->
+    <section id="skills">
+        <div class="container">
+            <div class="sec-title">Technical_Stack</div>
+            <div class="terminal">
+                <div class="term-bar">
+                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                </div>
+                <div class="term-content">
+                    <div class="cmd-line"><span class="prompt">user@alireza:~</span> cat programming.txt</div>
+                    <span class="output"><span class="highlight">Python</span>, C/C++</span>
+
+                    <div class="cmd-line"><span class="prompt">user@alireza:~</span> ls ./AI_DataScience</div>
+                    <span class="output">
+                        PyTorch&nbsp;&nbsp; TensorFlow&nbsp;&nbsp; EfficientNet&nbsp;&nbsp; CNNs<br>
+                        DeepInsight&nbsp;&nbsp; Discrete_Event_Simulation(DES)
+                    </span>
+
+                    <div class="cmd-line"><span class="prompt">user@alireza:~</span> ./check_systems.sh</div>
+                    <span class="output">
+                        [OK] Docker Containers<br>
+                        [OK] Linux (Root/Kernel utilities)<br>
+                        [OK] ADB & USB/IP Protocols<br>
+                        [OK] Asyncio & Selenium Automation
+                    </span>
+
+                    <div class="cmd-line"><span class="prompt">user@alireza:~</span> echo $MATH_CONCEPTS</div>
+                    <span class="output">
+                        Stochastic Modeling, Cost-Sensitive Learning, Numerical Optimization, Loss Function Design
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects (Exact Links Provided) -->
+    <section id="projects">
+        <div class="container">
+            <div class="sec-title">Selected_Repositories</div>
+            <div class="grid">
+                
+                <!-- 1. Traffic Severity -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder"></i>
+                        <a href="https://github.com/itsforal/Traffic-Severity-Framework.git" class="icon-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>Traffic Severity Framework</h3>
+                    <p>Deep Learning pipeline transforming tabular data to images. Features custom Soft F-Beta Loss (β=2.0) for imbalanced classes.</p>
+                    <div class="tags">
+                        <span class="tag">PyTorch</span> <span class="tag">DeepInsight</span> <span class="tag">Loss Design</span>
+                    </div>
+                </div>
+
+                <!-- 2. CrashVision DL -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder"></i>
+                        <a href="https://github.com/itsforal/CrashVision-DL.git" class="icon-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>CrashVision-DL</h3>
+                    <p>Computer Vision approach to crash severity prediction, utilizing DeepInsight for feature mapping.</p>
+                    <div class="tags">
+                        <span class="tag">CV</span> <span class="tag">Feature Engineering</span> <span class="tag">AI</span>
+                    </div>
+                </div>
+
+                <!-- 3. LinguoMath TTS -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder"></i>
+                        <a href="https://github.com/itsforal/LinguoMath-TTS.git" class="icon-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>LinguoMath TTS</h3>
+                    <p>Async pipeline converting scientific PDFs to audio. Regex-based engine parses LaTeX formulas into natural language.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span> <span class="tag">Asyncio</span> <span class="tag">Regex</span> <span class="tag">LLMs</span>
+                    </div>
+                </div>
+
+                <!-- 4. Android Hardware Bridge -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder"></i>
+                        <a href="https://github.com/itsforal/android-hardware-bridge.git" class="icon-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>Android Hardware Bridge</h3>
+                    <p>Converting rooted Android devices into headless USB servers using USB/IP protocols via TCP/IP.</p>
+                    <div class="tags">
+                        <span class="tag">Linux Kernel</span> <span class="tag">ADB</span> <span class="tag">Networking</span>
+                    </div>
+                </div>
+
+                <!-- 5. CodeBase Stitcher -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder"></i>
+                        <a href="https://github.com/itsforal/CodeBase-Stitcher.git" class="icon-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>CodeBase Stitcher</h3>
+                    <p>Automation tool for aggregating distributed code repositories into unified datasets for LLM context injection.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span> <span class="tag">Automation</span> <span class="tag">File I/O</span>
+                    </div>
+                </div>
+
+                <!-- 6. Youtube Farsi Dubber -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder"></i>
+                        <a href="https://github.com/itsforal/Youtube-Farsi-Dubber.git" class="icon-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>Youtube Farsi Dubber</h3>
+                    <p>Real-time bilingual audio generation and dubbing pipeline utilizing AI voice synthesis.</p>
+                    <div class="tags">
+                        <span class="tag">Audio Processing</span> <span class="tag">AI</span> <span class="tag">Dubbing</span>
+                    </div>
+                </div>
+
+                <!-- 7. EagleEye Scraper -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder"></i>
+                        <a href="https://github.com/itsforal/EagleEye-Scraper.git" class="icon-link"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h3>EagleEye Scraper</h3>
+                    <p>High-performance asynchronous web scraper designed for divergent data collection strategies.</p>
+                    <div class="tags">
+                        <span class="tag">Selenium</span> <span class="tag">AsyncIO</span> <span class="tag">Data Mining</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline (Resume Only) -->
+    <section id="experience">
+        <div class="container">
+            <div class="sec-title">Timeline</div>
+            <div class="timeline-row">
+                
+                <div class="timeline-col">
+                    <h3 style="margin-bottom:20px; color:var(--text-main);">Education</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="time-role">University of Waterloo</div>
+                        <div class="time-loc">Master of Mathematics in Computational Mathematics</div>
+                        <span class="time-date">Sep. 2024 -- Present</span>
+                        <ul class="time-list">
+                            <li>Focus: Numerical Analysis, Optimization, Deep Learning.</li>
+                            <li>Advisor: Dr. David Del Rey Fernández.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="time-role">Amirkabir University of Technology</div>
+                        <div class="time-loc">B.Sc. in Industrial Engineering</div>
+                        <span class="time-date">2019 -- 2024</span>
+                        <ul class="time-list">
+                            <li>GPA: 3.5/4.0 (Top 5% of class).</li>
+                            <li>Thesis: Operating Room Scheduling Optimization.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-col">
+                    <h3 style="margin-bottom:20px; color:var(--text-main);">Experience</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="time-role">Teaching Assistant</div>
+                        <div class="time-loc">Amirkabir University of Technology</div>
+                        <span class="time-date">Spring 2023, 2024</span>
+                        <ul class="time-list">
+                            <li>Instructed "Optimization" and "Systems Analysis".</li>
+                            <li>Designed mathematical modeling assignments.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="time-role">Factory Layout Design Intern</div>
+                        <div class="time-loc">TAV Institute</div>
+                        <span class="time-date">2024</span>
+                        <ul class="time-list">
+                            <li>Optimized factory layouts using spatial analysis.</li>
+                            <li>Conducted capacity analysis for bottlenecks.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="mailto:alaalman@uwaterloo.ca"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/alireza-laalmanesh"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/itsforal"><i class="fab fa-github"></i></a>
+            </div>
+            <p>Designed by Alireza Laalmanesh.</p>
+        </div>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+
+        function initParticles() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+            const count = window.innerWidth < 768 ? 35 : 80;
+            
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    size: Math.random() * 2 + 0.5
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            particles.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                ctx.fillStyle = 'rgba(100, 210, 255, 0.4)';
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+
+                    if (dist < 130) {
+                        ctx.strokeStyle = `rgba(100, 210, 255, ${0.1 - dist/1300})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', initParticles);
+        initParticles();
+        animate();
+    </script>
+</body>
+</html>
