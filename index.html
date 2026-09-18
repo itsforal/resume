@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Alireza Laalmanesh - Computational Mathematics & Systems Engineering">
-    
-    <title>Alireza Laalmanesh | Student & Explorer</title>
-    
+    <meta
+        name="description"
+        content="Alireza Laalmanesh — MMath student at the University of Waterloo working on emergency medical services optimization, dynamic ambulance relocation, discrete-event simulation, and data-driven operations research."
+    >
+
+    <title>Alireza Laalmanesh | EMS Optimization & Computational Mathematics</title>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -18,15 +21,15 @@
             --bg-core: #050505;
             --bg-panel: rgba(20, 20, 24, 0.7);
             --border-dim: rgba(255, 255, 255, 0.08);
-            
+
             --accent-cyan: #64d2ff;   /* Math */
             --accent-purple: #bf5af2; /* AI */
             --accent-green: #30d158;  /* Systems */
             --accent-gold: #ffd700;   /* Star/Highlight */
-            
+
             --text-main: #f0f0f0;
             --text-mute: #888890;
-            
+
             --font-ui: 'Inter', sans-serif;
             --font-code: 'JetBrains Mono', monospace;
         }
@@ -62,11 +65,11 @@
         }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        
-        .logo { 
-            font-family: var(--font-code); 
-            font-weight: 700; 
-            color: var(--text-main); 
+
+        .logo {
+            font-family: var(--font-code);
+            font-weight: 700;
+            color: var(--text-main);
             font-size: 1.1rem;
         }
         .logo span { color: var(--accent-cyan); }
@@ -80,7 +83,7 @@
             font-family: var(--font-code);
         }
         .nav-links a:hover { color: var(--accent-cyan); }
-        
+
         .btn-resume {
             border: 1px solid var(--border-dim);
             padding: 6px 14px;
@@ -164,7 +167,7 @@
         }
         .sec-title::before { content: '>'; color: var(--accent-cyan); }
 
-        /* --- TERMINAL (Interests) --- */
+        /* --- TERMINAL (Research) --- */
         .terminal {
             background: #08080a;
             border: 1px solid #333;
@@ -210,6 +213,23 @@
             border-color: var(--accent-cyan);
             background: rgba(30, 30, 35, 0.9);
         }
+
+        .featured-card {
+            border-color: rgba(48, 209, 88, 0.45);
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(48, 209, 88, 0.08),
+                    rgba(100, 210, 255, 0.04)
+                ),
+                var(--bg-panel);
+        }
+
+        .featured-card:hover {
+            border-color: var(--accent-green);
+            box-shadow: 0 12px 35px rgba(48, 209, 88, 0.08);
+        }
+
         .card-head {
             display: flex;
             justify-content: space-between;
@@ -219,10 +239,10 @@
         .icon-folder { color: var(--accent-cyan); font-size: 1.2rem; }
         .icon-link { color: var(--text-mute); font-size: 1.2rem; transition: 0.2s; }
         .icon-link:hover { color: #fff; }
-        
+
         .card h3 { font-size: 1.1rem; margin-bottom: 10px; font-weight: 600; }
         .card p { font-size: 0.9rem; color: var(--text-mute); margin-bottom: 20px; flex-grow: 1; }
-        
+
         .tags { display: flex; flex-wrap: wrap; gap: 8px; font-family: var(--font-code); font-size: 0.75rem; color: var(--text-mute); }
         .tag { background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 4px; }
 
@@ -254,9 +274,35 @@
         .socials a:hover { color: var(--text-main); }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.8rem; }
-            .nav-links { display: none; }
-            .timeline-row { flex-direction: column; gap: 0; }
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            .nav-links a:not(.btn-resume) {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 0;
+            }
+
+            .timeline-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .contact-row {
+                flex-wrap: wrap;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+
+            section {
+                padding: 70px 0;
+            }
         }
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
@@ -272,12 +318,12 @@
             <div class="logo">./ALIREZA_<span>LAAL</span></div>
             <div class="nav-links">
                 <a href="#about">About</a>
-                <a href="#interests">Curiosity</a>
-                <a href="#projects">Repositories</a>
-                <a href="#education">Education</a> 
+                <a href="#research">Research</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
                 <a href="#experience">Experience</a>
                 <a href="#honors">Awards</a>
-                <a href="resume.pdf" class="btn-resume" download>Download Resume</a>
+                <a href="CV.pdf" class="btn-resume" download>Download CV</a>
             </div>
         </div>
     </nav>
@@ -287,257 +333,465 @@
         <div class="container">
             <div class="status-pill">
                 <div class="status-dot"></div>
-                <span>Open to Learning & Collaboration</span>
+                <span>Open to Research Collaboration</span>
             </div>
-            
+
             <h1>Alireza Laalmanesh</h1>
-            
+
             <p class="hero-sub">
-                MMath Student in <b>Computational Mathematics</b> & <b>Industrial Engineering</b>.<br>
+                MMath student in <b>Computational Mathematics</b> at the
+                University of Waterloo, with a background in
+                <b>Industrial Engineering</b>.
+                <br><br>
+                My current research focuses on
+                <b>real-time ambulance dispatch</b>,
+                <b>dynamic relocation</b>, and
+                <b>resource allocation under uncertainty</b>.
             </p>
 
             <div class="contact-row">
-                <a href="mailto:alaalman@uwaterloo.ca" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
-                <a href="https://github.com/itsforal" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://linkedin.com/in/alireza-laalmanesh" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a
+                    href="mailto:alaalman@uwaterloo.ca"
+                    class="btn btn-primary"
+                    aria-label="Email Alireza Laalmanesh"
+                >
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    Email Me
+                </a>
+
+                <a
+                    href="https://github.com/itsforal"
+                    class="btn btn-outline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View GitHub profile"
+                >
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    GitHub
+                </a>
+
+                <a
+                    href="https://linkedin.com/in/alireza-laalmanesh"
+                    class="btn btn-outline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View LinkedIn profile"
+                >
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    LinkedIn
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Interests (Terminal) -->
-    <section id="interests">
-            <div class="container">
-                <div class="sec-title">Knowledge_Journey</div>
-                <div class="terminal">
-                    <div class="term-bar">
-                        <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+    <!-- Research Focus -->
+    <section id="research">
+        <div class="container">
+            <div class="sec-title">Research_Focus</div>
+
+            <div class="terminal">
+                <div class="term-bar">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+
+                <div class="term-content">
+                    <div class="cmd-line">
+                        <span class="prompt">research@alireza:~$</span>
+                        cat current_focus.txt
                     </div>
-                    <div class="term-content">
-                        <div class="cmd-line"><span class="prompt">user@alireza:~</span> cat passions.txt</div>
-                        <span class="output">
-                            <span class="highlight">Python</span>, C/C++ 
-                            <span style="opacity: 0.6; font-size: 0.85rem; font-style: italic;"># Tools for Computational Implementation & Algorithm Design</span>
+
+                    <span class="output">
+                        <span class="highlight">
+                            Emergency Medical Services Optimization
                         </span>
-    
-                        <div class="cmd-line"><span class="prompt">user@alireza:~</span> ls ./Academic_Explorations/AI</div>
-                        <span class="output">
-                            PyTorch&nbsp;&nbsp; TensorFlow&nbsp;&nbsp; EfficientNet&nbsp;&nbsp; CNNs<br>
-                            <span style="opacity: 0.7;">Currently Deepening:</span> Discrete_Event_Simulation(DES)
-                        </span>
-    
-                        <div class="cmd-line"><span class="prompt">user@alireza:~</span> ./learning_status.sh</div>
-                        <span class="output">
-                            [Active] Docker & Virtualization Env<br>
-                            [Learning] Low-level Protocols Utilities<br>
-                            [Exploring] ADB & Hardware Protocols<br>
-                            [Hands-on] Asyncio Automation Scripts
-                        </span>
-    
-                        <div class="cmd-line"><span class="prompt">user@alireza:~</span> echo $ACADEMIC_INTERESTS</div>
-                        <span class="output">
-                            Numerical Optimization, Stochastic Modeling, Loss Function Design...
-                            <br><span style="opacity: 0.6; font-size: 0.85rem;">(Always a student of Computational Mathematics)</span>
-                        </span>
+                        <br>
+                        Real-time ambulance dispatch, dynamic relocation,
+                        resource allocation under uncertainty, and
+                        discrete-event simulation.
+                    </span>
+
+                    <div class="cmd-line">
+                        <span class="prompt">research@alireza:~$</span>
+                        cat methodological_interests.txt
                     </div>
+
+                    <span class="output">
+                        Mathematical Optimization&nbsp;&nbsp;
+                        Stochastic Modeling&nbsp;&nbsp;
+                        Sequential Decision-Making
+                        <br>
+                        Structured Combinatorial Search&nbsp;&nbsp;
+                        Learning-Guided Optimization
+                    </span>
+
+                    <div class="cmd-line">
+                        <span class="prompt">research@alireza:~$</span>
+                        cat current_principle.txt
+                    </div>
+
+                    <span class="output">
+                        <span class="highlight">
+                            Learning may guide evaluation or search;
+                            operational feasibility and decision structure
+                            should remain explicit.
+                        </span>
+                    </span>
+
+                    <div class="cmd-line">
+                        <span class="prompt">research@alireza:~$</span>
+                        cat technical_foundation.txt
+                    </div>
+
+                    <span class="output">
+                        Python&nbsp;&nbsp;
+                        C/C++&nbsp;&nbsp;
+                        PyTorch&nbsp;&nbsp;
+                        Discrete-Event Simulation&nbsp;&nbsp;
+                        Numerical Optimization
+                        <br>
+                        Linux&nbsp;&nbsp;
+                        Docker&nbsp;&nbsp;
+                        AsyncIO&nbsp;&nbsp;
+                        Scientific Computing
+                    </span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-    <!-- Projects (Exact Links Provided) -->
+    <!-- Projects -->
     <section id="projects">
-            <div class="container">
-                <div class="sec-title">Recent_Experiments</div>
-                <div class="grid">
-                    
-                    <!-- NEW CARD 1: Academic Hub Automation -->
-                    <div class="card">
-                        <div class="card-head">
-                            <i class="far fa-folder icon-folder"></i>
-                            <a href="https://github.com/itsforal/academic-hub-automation.git" class="icon-link"><i class="fab fa-github"></i></a>
-                        </div>
-                        <h3>Academic Hub Automation</h3>
-                        <p>A local integration system designed to bridge Linux research environments with Microsoft 365. Uses email transport layers to securely sync notifications and calendars without direct API dependencies.</p>
-                        <div class="tags">
-                            <span class="tag">Docker</span> <span class="tag">n8n</span> <span class="tag">System Design</span>
-                        </div>
+        <div class="container">
+            <div class="sec-title">Selected_Projects</div>
+            <div class="grid">
+
+                <!-- 1. EMS research -->
+                <div class="card featured-card">
+                    <div class="card-head">
+                        <i class="fas fa-ambulance icon-folder" aria-hidden="true"></i>
+                        <span class="icon-link" aria-label="Current research project">
+                            <i class="fas fa-flask" aria-hidden="true"></i>
+                        </span>
                     </div>
 
-                    <!-- NEW CARD 2: Server Config Utility -->
-                    <div class="card">
-                        <div class="card-head">
-                            <i class="far fa-folder icon-folder"></i>
-                            <a href="https://github.com/itsforal/zorin-server-setup.git" class="icon-link"><i class="fab fa-github"></i></a>
-                        </div>
-                        <h3>Server Config Utility</h3>
-                        <p>A Bash script developed to streamline the initialization of headless Linux servers. Automates the configuration of Tailscale and XRDP to ensure secure and immediate remote access.</p>
-                        <div class="tags">
-                            <span class="tag">Bash</span> <span class="tag">Linux Admin</span> <span class="tag">Automation</span>
-                        </div>
+                    <h3>Dynamic Ambulance Dispatch and Relocation</h3>
+
+                    <p>
+                        An event-driven Emergency Medical Services simulation for studying
+                        real-time ambulance dispatch and dynamic relocation under uncertain
+                        demand. The current framework evaluates MOVE-versus-STAY decisions
+                        using spatial demand, local coverage, relocation trajectories, and
+                        interactions among available ambulances.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">EMS Optimization</span>
+                        <span class="tag">Discrete-Event Simulation</span>
+                        <span class="tag">Dynamic Resource Allocation</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Operations Research</span>
                     </div>
-                    
-                    <!-- PREVIOUS CARD 1 -->
-                    <div class="card">
-                        <div class="card-head">
-                            <i class="far fa-folder icon-folder"></i>
-                            <a href="https://github.com/itsforal/Traffic-Severity-Framework.git" class="icon-link"><i class="fab fa-github"></i></a>
-                        </div>
-                        <h3>Traffic Severity Study</h3>
-                        <p>A study on imbalanced data challenges in traffic patterns. Experimenting with custom Soft F-Beta Loss functions to improve minority class representation.</p>
-                        <div class="tags">
-                            <span class="tag">PyTorch</span> <span class="tag">DeepInsight</span> <span class="tag">Custom Loss Implementation</span>
-                        </div>
-                    </div>
-    
-                    <!-- PREVIOUS CARD 2 -->
-                    <div class="card">
-                        <div class="card-head">
-                            <i class="far fa-folder icon-folder"></i>
-                            <a href="https://github.com/itsforal/CrashVision-DL.git" class="icon-link"><i class="fab fa-github"></i></a>
-                        </div>
-                        <h3>CrashVision DL Exploration</h3>
-                        <p>Exploring Computer Vision approaches for crash severity prediction. Practicing feature mapping techniques utilizing the DeepInsight methodology.</p>
-                        <div class="tags">
-                            <span class="tag">CV</span> <span class="tag">Feature Engineering</span> <span class="tag">AI</span>
-                        </div>
-                    </div>
-    
-                    <!-- PREVIOUS CARD 3 -->
-                    <div class="card">
-                        <div class="card-head">
-                            <i class="far fa-folder icon-folder"></i>
-                            <a href="https://github.com/itsforal/LinguoMath-TTS.git" class="icon-link"><i class="fab fa-github"></i></a>
-                        </div>
-                        <h3>LinguoMath TTS Experiment</h3>
-                        <p>An experimental pipeline for parsing scientific PDFs. Investigating ways to translate complex LaTeX formulas into natural language via Asyncio.</p>
-                        <div class="tags">
-                            <span class="tag">Python</span> <span class="tag">Asyncio</span> <span class="tag">Regex</span> <span class="tag">LLM Studies</span>
-                        </div>
-                    </div>
-    
-                    <!-- PREVIOUS CARD 4 -->
-                    <div class="card">
-                        <div class="card-head">
-                            <i class="far fa-folder icon-folder"></i>
-                            <a href="https://github.com/itsforal/android-hardware-bridge.git" class="icon-link"><i class="fab fa-github"></i></a>
-                        </div>
-                        <h3>Android Hardware Bridge</h3>
-                        <p>A personal project exploring USB/IP protocols to repurpose rooted Android devices as headless servers over TCP/IP networks.</p>
-                        <div class="tags">
-                            <span class="tag">Low-level Protocols</span> <span class="tag">ADB</span> <span class="tag">Networking</span>
-                        </div>
-                    </div>
-    
-                    <!-- PREVIOUS CARD 5 -->
-                    <div class="card">
-                        <div class="card-head">
-                            <i class="far fa-folder icon-folder"></i>
-                            <a href="https://github.com/itsforal/CodeBase-Stitcher.git" class="icon-link"><i class="fab fa-github"></i></a>
-                        </div>
-                        <h3>CodeBase Aggregator</h3>
-                        <p>A utility script designed to aggregate repositories into datasets. Built to better understand LLM context injection and file I/O automation.</p>
-                        <div class="tags">
-                            <span class="tag">Python</span> <span class="tag">Automation</span> <span class="tag">File I/O</span>
-                        </div>
-                    </div>
-    
-                    <!-- PREVIOUS CARD 6 -->
-                    <div class="card">
-                        <div class="card-head">
-                            <i class="far fa-folder icon-folder"></i>
-                            <a href="https://github.com/itsforal/Youtube-Farsi-Dubber.git" class="icon-link"><i class="fab fa-github"></i></a>
-                        </div>
-                        <h3>Bilingual Audio Testing</h3>
-                        <p>Experimenting with AI voice synthesis APIs to automate the translation of educational video audio.</p>
-                        <div class="tags">
-                            <span class="tag">Audio Processing</span> <span class="tag">AI</span> <span class="tag">Dubbing</span>
-                        </div>
-                    </div>
-    
-                    <!-- PREVIOUS CARD 7 -->
-                    <div class="card">
-                        <div class="card-head">
-                            <i class="far fa-folder icon-folder"></i>
-                            <a href="https://github.com/itsforal/EagleEye-Scraper.git" class="icon-link"><i class="fab fa-github"></i></a>
-                        </div>
-                        <h3>EagleEye Crawler</h3>
-                        <p>Learning asynchronous web scraping and data collection strategies by exploring Python's AsyncIO and Selenium capabilities.</p>
-                        <div class="tags">
-                            <span class="tag">Selenium</span> <span class="tag">AsyncIO</span> <span class="tag">Data Mining</span>
-                        </div>
-                    </div>
-    
                 </div>
-            </div>
-        </section>
 
-    <!-- Timeline (Resume Only) -->
+                <!-- 2. Main ML project -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder" aria-hidden="true"></i>
+                        <a
+                            href="https://github.com/itsforal/CrashVision-DL.git"
+                            class="icon-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View CrashVision-DL on GitHub"
+                        >
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <h3>CrashVision-DL</h3>
+
+                    <p>
+                        A traffic-severity prediction project studying class imbalance
+                        in a large tabular dataset. The project uses DeepInsight-based
+                        feature mapping and a custom Soft F-Beta objective to emphasize
+                        recall for severe crash outcomes.
+                    </p>
+
+                    <div class="tags">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">DeepInsight</span>
+                        <span class="tag">Imbalanced Learning</span>
+                        <span class="tag">Custom Loss</span>
+                    </div>
+                </div>
+
+                <!-- 3. Research systems -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder" aria-hidden="true"></i>
+                        <a
+                            href="https://github.com/itsforal/academic-hub-automation.git"
+                            class="icon-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View Academic Hub Automation on GitHub"
+                        >
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <h3>Academic Hub Automation</h3>
+                    <p>A local integration system designed to bridge Linux research environments with Microsoft 365. Uses email transport layers to securely sync notifications and calendars without direct API dependencies.</p>
+                    <div class="tags">
+                        <span class="tag">Docker</span> <span class="tag">n8n</span> <span class="tag">System Design</span>
+                    </div>
+                </div>
+
+                <!-- 4. Scientific pipeline -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder" aria-hidden="true"></i>
+                        <a
+                            href="https://github.com/itsforal/LinguoMath-TTS.git"
+                            class="icon-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View LinguoMath TTS on GitHub"
+                        >
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <h3>LinguoMath TTS Experiment</h3>
+                    <p>An experimental pipeline for parsing scientific PDFs. Investigating ways to translate complex LaTeX formulas into natural language via Asyncio.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span> <span class="tag">Asyncio</span> <span class="tag">Regex</span> <span class="tag">LLM Studies</span>
+                    </div>
+                </div>
+
+                <!-- 5. CodeBase Aggregator -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder" aria-hidden="true"></i>
+                        <a
+                            href="https://github.com/itsforal/CodeBase-Stitcher.git"
+                            class="icon-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View CodeBase Aggregator on GitHub"
+                        >
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <h3>CodeBase Aggregator</h3>
+                    <p>A utility script designed to aggregate repositories into datasets. Built to better understand LLM context injection and file I/O automation.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span> <span class="tag">Automation</span> <span class="tag">File I/O</span>
+                    </div>
+                </div>
+
+                <!-- 6. Server Config Utility -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder" aria-hidden="true"></i>
+                        <a
+                            href="https://github.com/itsforal/zorin-server-setup.git"
+                            class="icon-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View Server Config Utility on GitHub"
+                        >
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <h3>Server Config Utility</h3>
+                    <p>A Bash script developed to streamline the initialization of headless Linux servers. Automates the configuration of Tailscale and XRDP to ensure secure and immediate remote access.</p>
+                    <div class="tags">
+                        <span class="tag">Bash</span> <span class="tag">Linux Admin</span> <span class="tag">Automation</span>
+                    </div>
+                </div>
+
+                <!-- 7. Android Hardware Bridge -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder" aria-hidden="true"></i>
+                        <a
+                            href="https://github.com/itsforal/android-hardware-bridge.git"
+                            class="icon-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View Android Hardware Bridge on GitHub"
+                        >
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <h3>Android Hardware Bridge</h3>
+                    <p>A personal project exploring USB/IP protocols to repurpose rooted Android devices as headless servers over TCP/IP networks.</p>
+                    <div class="tags">
+                        <span class="tag">Low-level Protocols</span> <span class="tag">ADB</span> <span class="tag">Networking</span>
+                    </div>
+                </div>
+
+                <!-- 8. Bilingual Audio Testing -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder" aria-hidden="true"></i>
+                        <a
+                            href="https://github.com/itsforal/Youtube-Farsi-Dubber.git"
+                            class="icon-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View Bilingual Audio Testing on GitHub"
+                        >
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <h3>Bilingual Audio Testing</h3>
+                    <p>Experimenting with AI voice synthesis APIs to automate the translation of educational video audio.</p>
+                    <div class="tags">
+                        <span class="tag">Audio Processing</span> <span class="tag">AI</span> <span class="tag">Dubbing</span>
+                    </div>
+                </div>
+
+                <!-- 9. EagleEye Crawler -->
+                <div class="card">
+                    <div class="card-head">
+                        <i class="far fa-folder icon-folder" aria-hidden="true"></i>
+                        <a
+                            href="https://github.com/itsforal/EagleEye-Scraper.git"
+                            class="icon-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="View EagleEye Crawler on GitHub"
+                        >
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <h3>EagleEye Crawler</h3>
+                    <p>Learning asynchronous web scraping and data collection strategies by exploring Python's AsyncIO and Selenium capabilities.</p>
+                    <div class="tags">
+                        <span class="tag">Selenium</span> <span class="tag">AsyncIO</span> <span class="tag">Data Mining</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
     <section id="education">
         <div class="container">
             <div class="timeline-col">
                 <div class="sec-title">Academic_Background</div>
-                
-                <!-- University of Waterloo -->
+
                 <div class="timeline-item">
                     <div class="time-role">Master of Mathematics (MMath)</div>
-                    <div class="time-loc">University of Waterloo - Computational Mathematics (Co-op)</div>
+
+                    <div class="time-loc">
+                        University of Waterloo — Computational Mathematics (Co-op)
+                    </div>
+
                     <span class="time-date">Sep 2025 – Present</span>
+
                     <ul class="time-list">
-                        <!-- Supervised by - STAR MOVED TO LEFT OF NAME - LINKS UPDATED -->
-                        <li>Supervised by 
-                            <i class="fas fa-star" style="color: var(--accent-gold); font-size: 0.8rem; margin-right: 5px;"></i>
-                            <a href="https://uwaterloo.ca/applied-mathematics/profiles/david-del-rey-fernandez" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--accent-cyan);">Dr. David Del Rey Fernández</a> & 
-                            <a href="https://uwaterloo.ca/planning/profiles/leia-minaker" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px dashed var(--accent-cyan);">Dr. Leia Minaker</a>.
+                        <li>
+                            Recipient of the i-Comp-Data Fellowship, supporting
+                            interdisciplinary research involving computational methods
+                            and urban data.
                         </li>
-                        
-                        <!-- Special Thanks -->
-                        <li style="font-style: italic; opacity: 0.85; margin-top: 8px;">
-                            <i class="fas fa-heart" style="font-size: 0.7rem; color: var(--accent-purple); margin-right: 5px;"></i>
-                            Grateful for their immense support and patient mentorship throughout my graduate journey.
+
+                        <li>
+                            Fellowship advisors:
+                            <a
+                                href="https://uwaterloo.ca/applied-mathematics/profiles/david-del-rey-fernandez"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style="color: inherit; text-decoration: none;
+                                       border-bottom: 1px dashed var(--accent-cyan);"
+                            >
+                                Dr. David Del Rey Fernández
+                            </a>
+                            and
+                            <a
+                                href="https://uwaterloo.ca/planning/profiles/leia-minaker"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style="color: inherit; text-decoration: none;
+                                       border-bottom: 1px dashed var(--accent-cyan);"
+                            >
+                                Dr. Leia Minaker
+                            </a>.
+                        </li>
+
+                        <li>
+                            Research interests include numerical optimization,
+                            stochastic modeling, deep learning for urban data, and
+                            discrete-event simulation.
                         </li>
                     </ul>
                 </div>
 
-                <!-- Amirkabir University -->
                 <div class="timeline-item">
                     <div class="time-role">B.Sc. in Industrial Engineering</div>
-                    <div class="time-loc">Amirkabir University of Technology (Tehran Polytechnic)</div>
-                    <span class="time-date">Sep 2020 – Jun 2025</span>
+
+                    <div class="time-loc">
+                        Amirkabir University of Technology (Tehran Polytechnic)
+                    </div>
+
+                    <span class="time-date">2019 – 2024</span>
+
                     <ul class="time-list">
-                        <li><strong>Thesis:</strong> Design a Model for Operating Room Scheduling Problem with Endogenous Uncertainty.</li>
-                        <li>Focus on Systems Analysis, Optimization, and Supply Chain Management.</li>
-                        <li>Built a strong foundation in mathematical modeling and engineering statistics.</li>
+                        <li>
+                            <strong>Thesis:</strong>
+                            Design of a Model for the Operating Room Scheduling Problem
+                            with Endogenous Uncertainty.
+                        </li>
+
+                        <li>
+                            Coursework and project experience in systems analysis,
+                            optimization, supply chain management, and engineering
+                            statistics.
+                        </li>
                     </ul>
                 </div>
 
             </div>
         </div>
     </section>
-    
-<!-- Honors & Awards -->
+
+    <!-- Honors & Awards -->
     <section id="honors">
         <div class="container">
             <div class="timeline-col">
                 <div class="sec-title">Honors_&_Awards</div>
 
-                <!-- i-Comp-Data Fellowship -->
                 <div class="timeline-item">
                     <div class="time-role">i-Comp-Data Fellowship</div>
-                    <div class="time-loc">Provost-funded Award</div>
+
+                    <div class="time-loc">University of Waterloo</div>
+
                     <ul class="time-list">
-                        <li>Supporting high-impact, interdisciplinary research projects bridging Mathematics and Environmental Planning.</li>
+                        <li>
+                            Fellowship supporting interdisciplinary research involving
+                            mathematics, computation, and urban or environmental data.
+                        </li>
                     </ul>
                 </div>
 
-                <!-- National Rank -->
                 <div class="timeline-item">
-                    <div class="time-role">Top 1% Rank</div>
-                    <div class="time-loc">National University Entrance Exam</div>
+                    <div class="time-role">Top 1% National Ranking</div>
+
+                    <div class="time-loc">
+                        National University Entrance Examination
+                    </div>
+
                     <ul class="time-list">
-                        <li>Achieved top ranking among +150,000 candidates nationwide.</li>
+                        <li>
+                            Ranked in the top 1% among approximately 150,000 candidates.
+                        </li>
                     </ul>
                 </div>
 
-                <!-- Scholarship -->
                 <div class="timeline-item" style="border-left: none; padding-bottom: 0;">
                     <div class="time-role">Merit-based Scholarship</div>
                     <div class="time-loc">Amirkabir University of Technology</div>
@@ -549,95 +803,135 @@
             </div>
         </div>
     </section>
-    
-    <section id="experience">
-            <div class="container"> 
-                <div class="timeline-col">
-                    
-                    <div class="sec-title">Professional_Experience</div>
 
-                    <div class="timeline-item">
-                        <div class="time-role">Co-op Research Assistant</div>
-                        <div class="time-loc">Polytechnique Montréal</div>
-                        <span class="time-date">Jun 12, 2026 – Sep 4, 2026</span>
-                        <ul class="time-list">
-                            <li>Applied optimization and machine learning algorithms to improve Emergency Medical Services (EMS) dispatching systems.</li>
-                            <li>Designed and executed long-running simulation experiments to evaluate reinforcement learning dispatch policies using real-world EMS datasets.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="time-role">Graduate Teaching Assistant</div>
-                        <div class="time-loc">University of Waterloo</div>
-                        <span class="time-date">Jan 2026 – Present</span>
-                        <ul class="time-list">
-                            <li><strong>MATH 128:</strong> Calculus 2 for the Sciences.</li>
-                            <li><strong>MATH 106:</strong> Applied Linear Algebra 1.</li>
-                            <li>Facilitating tutorials and supporting students in mastering fundamental calculus and algebraic concepts.</li>
-                        </ul>
-                    </div>
-                
-                    <div class="timeline-item">
-                        <div class="time-role">Graduate Teaching Assistant</div>
-                        <div class="time-loc">University of Waterloo</div>
-                        <span class="time-date">Sep 2025 – Dec 2025</span>
-                        <ul class="time-list">
-                            <li><strong>MATH 135:</strong> Algebra for Honours Mathematics (Introduction to proofs and logic).</li>
-                            <li><strong>MATH 115:</strong> Linear Algebra for Engineering.</li>
-                            <li>Assisted in grading and provided feedback on mathematical proofs and engineering-focused linear algebra.</li>
-                        </ul>
-                    </div>
-                
-                    <div class="timeline-item">
-                        <div class="time-role">Mathematics & Physics Tutor</div>
-                        <div class="time-loc">Self-employed (Private)</div>
-                        <span class="time-date">Dec 2019 – Sep 2025</span>
-                        <ul class="time-list">
-                            <li>Focused on fostering deep conceptual understanding in Math and Physics for grades 7–12.</li>
-                            <li>Tailored instructional methods to individual learning styles to enhance problem-solving skills.</li>
-                        </ul>
-                    </div>
-                
-                    <div class="timeline-item">
-                        <div class="time-role">Teaching Assistant</div>
-                        <div class="time-loc">Amirkabir University of Technology</div>
-                        <span class="time-date">Sep 2023 – Jun 2025</span>
-                        <ul class="time-list">
-                            <li>Assisted in "Introduction to Probability Theory", "Optimization", and "Systems Analysis".</li>
-                            <li>Designed mathematical modeling assignments to bridge theoretical concepts with practical applications.</li>
-                        </ul>
-                    </div>
-                
-                    <div class="timeline-item">
-                        <div class="time-role">Factory Layout Design Intern</div>
-                        <div class="time-loc">TAV Institute (Tavenergyco)</div>
-                        <span class="time-date">Jul 2023 – Dec 2023</span>
-                        <ul class="time-list">
-                            <li>Applied theoretical optimization techniques to address real-world supply chain and layout challenges.</li>
-                            <li>Conducted capacity analysis to identify and mitigate production bottlenecks.</li>
-                        </ul>
-                    </div>
-                
-                    <div class="timeline-item">
-                        <div class="time-role">Academic Advisor</div>
-                        <div class="time-loc">Kanoon Farhangi Amoozesh (Galamchi)</div>
-                        <span class="time-date">Dec 2019 – Dec 2020</span>
-                        <ul class="time-list">
-                            <li>Guided students in academic planning, goal setting, and developing efficient study habits.</li>
-                        </ul>
-                    </div>
+    <!-- Experience -->
+    <section id="experience">
+        <div class="container">
+            <div class="timeline-col">
+
+                <div class="sec-title">Professional_Experience</div>
+
+                <div class="timeline-item">
+                    <div class="time-role">Co-op Research Assistant</div>
+
+                    <div class="time-loc">Polytechnique Montréal</div>
+
+                    <span class="time-date">Jun 2026 – Sep 2026</span>
+
+                    <ul class="time-list">
+                        <li>
+                            Conducted computational research on Emergency Medical Services
+                            dispatch and dynamic ambulance operations.
+                        </li>
+
+                        <li>
+                            Designed and executed discrete-event simulation experiments
+                            for evaluating reinforcement-learning dispatch policies under shared
+                            operating scenarios.
+                        </li>
+
+                        <li>
+                            Developed research directions related to interpretable
+                            ambulance relocation and resource allocation under uncertainty.
+                        </li>
+                    </ul>
                 </div>
-            </div> 
-        </section>
+
+                <div class="timeline-item">
+                    <div class="time-role">Graduate Teaching Assistant</div>
+
+                    <div class="time-loc">University of Waterloo</div>
+
+                    <span class="time-date">Sep 2025 – Present</span>
+
+                    <ul class="time-list">
+                        <li>
+                            Supported MATH 128, MATH 106, MATH 135, and MATH 115
+                            through tutorials, office hours, grading, and student feedback.
+                        </li>
+
+                        <li>
+                            Assisted students with calculus, linear algebra,
+                            mathematical reasoning, and introductory proof techniques.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-role">Mathematics & Physics Tutor</div>
+                    <div class="time-loc">Self-employed (Private)</div>
+                    <span class="time-date">Dec 2019 – Sep 2025</span>
+                    <ul class="time-list">
+                        <li>Focused on fostering deep conceptual understanding in Math and Physics for grades 7–12.</li>
+                        <li>Tailored instructional methods to individual learning styles to enhance problem-solving skills.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-role">Teaching Assistant</div>
+                    <div class="time-loc">Amirkabir University of Technology</div>
+                    <span class="time-date">Sep 2023 – Jun 2025</span>
+                    <ul class="time-list">
+                        <li>Assisted in "Introduction to Probability Theory", "Optimization", and "Systems Analysis".</li>
+                        <li>Designed mathematical modeling assignments to bridge theoretical concepts with practical applications.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-role">Factory Layout Design Intern</div>
+                    <div class="time-loc">TAV Institute (Tavenergyco)</div>
+                    <span class="time-date">2024</span>
+                    <ul class="time-list">
+                        <li>Applied theoretical optimization techniques to address real-world supply chain and layout challenges.</li>
+                        <li>Conducted capacity analysis to identify and mitigate production bottlenecks.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="time-role">Academic Advisor</div>
+                    <div class="time-loc">Kanoon Farhangi Amoozesh (Galamchi)</div>
+                    <span class="time-date">Dec 2019 – Dec 2020</span>
+                    <ul class="time-list">
+                        <li>Guided students in academic planning, goal setting, and developing efficient study habits.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
             <div class="socials">
-                <a href="mailto:alaalman@uwaterloo.ca"><i class="fas fa-envelope"></i></a>
-                <a href="https://linkedin.com/in/alireza-laalmanesh"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/itsforal"><i class="fab fa-github"></i></a>
+                <a
+                    href="mailto:alaalman@uwaterloo.ca"
+                    aria-label="Email Alireza Laalmanesh"
+                >
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                </a>
+
+                <a
+                    href="https://linkedin.com/in/alireza-laalmanesh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn profile"
+                >
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                </a>
+
+                <a
+                    href="https://github.com/itsforal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub profile"
+                >
+                    <i class="fas fa-github" aria-hidden="true"></i>
+                </a>
             </div>
-            <p>Built with curiosity by Alireza.</p>
+
+            <p>
+                Computational Mathematics, Operations Research,
+                and Emergency Medical Services Optimization.
+            </p>
         </div>
     </footer>
 
@@ -652,7 +946,7 @@
             height = canvas.height = window.innerHeight;
             particles = [];
             const count = window.innerWidth < 768 ? 35 : 80;
-            
+
             for (let i = 0; i < count; i++) {
                 particles.push({
                     x: Math.random() * width,
@@ -666,7 +960,7 @@
 
         function animate() {
             ctx.clearRect(0, 0, width, height);
-            
+
             particles.forEach((p, i) => {
                 p.x += p.vx;
                 p.y += p.vy;
